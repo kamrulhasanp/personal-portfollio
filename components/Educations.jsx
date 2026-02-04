@@ -25,7 +25,7 @@ export const Educations = () => {
 
     return (
 
-        <section id="education" className="py-10 bg-white">
+        <section id="education" className="py-10 bg-[#f8f9fa]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Section Heading */}
