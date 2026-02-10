@@ -12,11 +12,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// app/layout.js
 export const metadata = {
-  title: "Kamrul Hasan | Portfolio",
+  title: {
+    default: "Kamrul Hasan | Portfolio",
+    template: "%s | Kamrul Hasan",
+  },
   description: "Full-Stack Developer & Cybersecurity Specialist",
- 
 };
+
 
 export default function RootLayout({ children }) {
   return (
