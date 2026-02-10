@@ -6,9 +6,9 @@ import Testimonials from './Testimonials'
 import FAQ from './FAQ'
 
 export const metadata = {
-    title: "Japan Study Consultancy | Hello From Japan",
-    description:
-        "Japan consultancy services for higher study: admission guidance, student visa support, documents, and pre-departure help.",
+    title: "Japan Study Consultancy | Student Visa Support & Admission Guidance",
+    description: "Expert Japan study consultancy offering university selection, professor communication support, document preparation, student visa guidance, and pre-departure assistance for international students.",
+
 };
 
 export default function page() {

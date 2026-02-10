@@ -12,7 +12,7 @@ export default function JapanHero() {
                         🎓 Study in Japan
                     </p>
                     <h1 className="text-4xl text-gray-700 md:text-5xl font-bold leading-tight">
-                        Japan Consultancy Services for Higher Study
+                        Higher Study in Japan – Government or Public Universities
                     </h1>
 
                     <p className="mt-5 text-gray-600 text-lg">

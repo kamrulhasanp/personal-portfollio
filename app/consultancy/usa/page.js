@@ -7,9 +7,9 @@ import USATestimonials from './USATestimonials'
 import USAFAQ from './USAFAQ'
 
 export const metadata = {
-    title: "Study in USA Consultancy | F-1 Visa Guidance",
+    title: "USA Study Consultancy | University Admission & F-1 Visa Support",
     description:
-        "USA study consultancy for university admission, I-20/SEVIS support, and F-1 visa interview preparation.",
+        "Expert USA study consultancy services with university shortlisting, application support, I-20/SEVIS guidance, and F-1 visa interview preparation.",
 };
 export default function page() {
     return (
