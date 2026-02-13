@@ -1,41 +1,54 @@
-import { GraduationCap, FileText, Languages, Plane, Award, University } from "lucide-react";
+import { ClipboardCheck, UserSearch, BookOpen, FileText, Stamp, Mail, Plane, Award, University, Upload } from "lucide-react";
 import ButtonWithDesign from "@/components/common/ButtonWithDesign";
 
 const services = [
   {
-    title: "University Admission Guidance",
+    title: "University & Research Lab Matching",
     description:
-      "Shortlisting universities, application support, and admission follow-ups.",
+      "Personalized shortlisting of Japanese government and public universities, aligned with your academic background and research interests, including suitable labs and supervisors.",
     icon: University,
   },
   {
-    title: "Student Visa Support",
+    title: "Research Proposal & SOP Development",
     description:
-      "End-to-end assistance for Japan student visa applications and compliance.",
-    icon: FileText,
+      "Structured guidance to refine your research proposal and Statement of Purpose for Masters and PhD programs, ensuring clarity, academic focus, and alignment with your target lab.",
+    icon: BookOpen,
   },
   {
-    title: "Language School Enrollment",
+    title: "Professor Communication Strategy",
     description:
-      "Guidance for Japanese language schools and pathway programs.",
-    icon: Languages,
+      "Support in drafting professional emails to potential supervisors, presenting your academic profile effectively, and initiating meaningful research discussions.",
+    icon: Mail,
   },
   {
-    title: "Document Preparation & Translation",
+    title: "Academic Document Review & Preparation",
     description:
-      "Review, preparation, and translation of academic and visa documents.",
-    icon: FileText,
+      "Careful review and organization of transcripts, certificates, CV, recommendation letters, and supporting documents to meet university application standards.",
+    icon: ClipboardCheck,
   },
+
   {
     title: "Scholarship & Funding Guidance",
     description:
-      "Information and support for available scholarships and financial planning.",
+      "Guidance on available funding pathways, including scholarship options and financial planning for Masters and PhD study at public universities in Japan.",
     icon: Award,
   },
   {
-    title: "Pre-Departure & Settlement Support",
+    title: "Application Submission Support",
     description:
-      "Accommodation guidance, travel preparation, and life in Japan support.",
+      "tep-by-step assistance with online applications, required forms, deadlines, and document submission to ensure a complete and well-prepared application.",
+    icon: Upload,
+  },
+  {
+    title: "COE & Student Visa Guidance",
+    description:
+      "Clear guidance on Certificate of Eligibility (COE) requirements, financial documentation, and student visa procedures after receiving admission.",
+    icon: Stamp,
+  },
+  {
+    title: "Pre-Departure & Academic Preparation",
+    description:
+      "Practical support before departure, including accommodation guidance, travel preparation, and orientation for academic life in Japan.",
     icon: Plane,
   },
 ];
@@ -62,10 +75,10 @@ export default function JapanServices() {
             return (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition"
+                className="bg-white border border-gray-100 p-6 rounded-xl shadow-sm hover:shadow-2xl hover:border-blue-400 hover:-translate-y-2 transition-all"
               >
                 <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 mb-4">
-                  <Icon className="text-gray-700" size={24} />
+                  <Icon className="text-green-700" size={24} />
                 </div>
 
                 <h3 className="text-xl font-semibold text-gray-800">

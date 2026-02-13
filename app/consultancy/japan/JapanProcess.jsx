@@ -8,29 +8,25 @@ const steps = [
     icon: PhoneCall,
   },
   {
-    title: "University & Program Shortlist",
-    description: "We shortlist suitable universities/language schools based on budget and requirements.",
-    icon: ListChecks,
-  },
-  {
     title: "Document Review & Preparation",
     description: "We review and prepare documents (SOP, CV, transcripts) and fix missing items.",
     icon: FileSearch,
   },
   {
-    title: "Application Submission",
-    description: "We assist with forms, deadlines, and submission to maximize acceptance chances.",
+    title: "Professor & Application Support",
+    description: "We help you select the right professor, prepare research documents, and complete the university application process.",
+    icon: ListChecks,
+  },
+
+  {
+    title: "Interview & Admission Result",
+    description: "We guide you through interview preparation and support you until you receive the offer letter from the university.",
     icon: Send,
   },
   {
-    title: "Admission + COE/Visa Support",
-    description: "We guide you through admission steps and Japan visa/COE requirements.",
+    title: "CoE, Visa &amp; Arrival in Japan",
+    description: "We assist with the Certificate of Eligibility (CoE), visa application, and final preparation to fly and start your studies in Japan.",
     icon: Stamp,
-  },
-  {
-    title: "Pre-Departure & Settlement",
-    description: "We help with accommodation, travel checklist, and settling in Japan.",
-    icon: Plane,
   },
 ];
 
@@ -56,11 +52,11 @@ export default function JapanProcess() {
             return (
               <div
                 key={idx}
-                className="rounded-xl border border-gray-100 p-6 hover:shadow-md transition"
+                className="rounded-xl border border-gray-100 p-6 hover:shadow-2xl hover:border-blue-400 hover:-translate-y-2 transition-all"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
-                    <Icon size={22} className="text-gray-700" />
+                    <Icon size={22} className="text-green-700" />
                   </div>
 
                   <div>

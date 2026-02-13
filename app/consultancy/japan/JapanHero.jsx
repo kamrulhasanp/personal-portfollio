@@ -11,15 +11,15 @@ export default function JapanHero() {
                     <p className="text-sm text-red-600 font-medium mb-2">
                         🎓 Study in Japan
                     </p>
+                
                     <h1 className="text-4xl text-gray-700 md:text-5xl font-bold leading-tight">
-                        Higher Study in Japan – Government or Public Universities
+                        Higher Study in Japan – Government Universities
                     </h1>
 
                     <p className="mt-5 text-gray-600 text-lg">
-                        We guide students through Japan’s visa process, university applications,
-                        and documentation with trusted local support.
+                        We guide Masters and PhD applicants through program shortlisting, application documents,
+                        and COE/visa steps with trusted local support.
                     </p>
-
                     <div className="mt-8">
                         <ButtonWithDesign text="Get Free Consultation" />
                     </div>
@@ -41,7 +41,6 @@ export default function JapanHero() {
                         priority
                     />
                 </div>
-
             </div>
         </section>
     );
