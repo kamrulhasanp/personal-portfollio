@@ -1,4 +1,7 @@
+'use client'
 import ButtonWithDesign from "@/components/common/ButtonWithDesign";
+import Image from "next/image";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -36,46 +39,84 @@ const faqs = [
 ];
 
 export default function USAFAQ() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (idx) => {
+    setOpenIndex((prev) => (prev === idx ? null : idx));
+  };
+
   return (
     <section className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-5">
+      {/* Header */}
+      <div className="text-center mb-14">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          Frequently Asked Questions
+        </h2>
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          Quick answers about USA admissions, I-20, SEVIS, and the F-1 visa process.
+        </p>
+      </div>
 
-        {/* Header */}
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Quick answers about USA admissions, I-20, SEVIS, and the F-1 visa process.
-          </p>
+      <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-10 items-stretch">
+        <div className="relative w-full h-full min-h-[400px]">
+          <Image
+            src="/images/faqs.png"
+            alt="Study in Japan consultancy for international students"
+            fill
+            className="object-contain rounded-xl"
+            priority
+          />
         </div>
 
         {/* FAQ */}
-        <div className="max-w-3xl mx-auto space-y-4">
-          {faqs.map((item, idx) => (
-            <details
-              key={idx}
-              open={idx === 0}
-              className="group border border-gray-200 rounded-xl p-5"
-            >
-              <summary className="cursor-pointer list-none flex items-center justify-between">
-                <span className="font-semibold text-gray-800">{item.q}</span>
-                <span className="ml-4 text-gray-500 group-open:rotate-45 transition">
-                  +
-                </span>
-              </summary>
+        <div>
+          <div className="space-y-4">
+            {faqs.map((item, idx) => {
+              const isOpen = openIndex === idx;
 
-              <p className="mt-4 text-gray-600 text-sm leading-relaxed">
-                {item.a}
-              </p>
-            </details>
-          ))}
-        </div>
+              return (
+                <div
+                  key={idx}
+                  className="border border-gray-200 rounded-xl"
+                >
+                  {/* Whole row clickable */}
+                  <button
+                    type="button"
+                    onClick={() => toggle(idx)}
+                    className="w-full flex items-center justify-between gap-4 p-5 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-semibold text-gray-800">
+                      {item.q}
+                    </span>
 
-        {/* CTA */}
-        <div className="mt-14 text-center">
-          <ButtonWithDesign text="Get Free Profile Evaluation" />
-        </div>
+                    <span
+                      className={`text-gray-500 transition-transform ${isOpen ? "rotate-45" : ""
+                        }`}
+                      aria-hidden="true"
+                    >
+                      +
+                    </span>
+                  </button>
+
+                  {/* Answer */}
+                  {isOpen && (
+                    <div className="px-5 pb-5">
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-14 text-center">
+            <ButtonWithDesign text="Get Free Profile Evaluation" />
+          </div>
+        </div>Í
 
       </div>
     </section>

@@ -17,7 +17,7 @@ export default function page() {
             <USAHero />
             <USAServices />
             <USAProcess />
-            <USATestimonials />
+            {/* <USATestimonials /> */}
             <USAFAQ />
         </div>
 
