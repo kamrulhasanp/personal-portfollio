@@ -6,12 +6,10 @@ import Footer from "@/components/Nav/Footer";
 import NavBar from "@/components/Nav/NavBar";
 import { Research } from "@/components/Research";
 import Services from "@/components/Services";
-import Image from "next/image";
 
 export default function Home() {
   return (
-    <div >
-      <main >
+    <main >
       <NavBar />
       <Hero />
       <About />
@@ -20,7 +18,7 @@ export default function Home() {
       <Services />
       <Contact />
       <Footer />
-      </main>
-    </div>
+    </main>
+
   );
 }

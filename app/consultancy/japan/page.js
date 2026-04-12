@@ -4,6 +4,7 @@ import JapanServices from './JapanServices'
 import JapanProcess from './JapanProcess'
 import Testimonials from './Testimonials'
 import FAQ from './FAQ'
+import VideoSection from '@/components/common/VideoSection'
 
 export const metadata = {
     title: "Japan Study Consultancy | Student Visa Support & Admission Guidance",
@@ -17,6 +18,9 @@ export default function page() {
             <JapanHero />
             <JapanServices />
             <JapanProcess />
+
+            <VideoSection />
+            
             <Testimonials />
             <FAQ />
 

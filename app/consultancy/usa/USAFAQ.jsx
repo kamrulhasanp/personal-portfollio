@@ -77,7 +77,8 @@ export default function USAFAQ() {
               return (
                 <div
                   key={idx}
-                  className="border border-gray-200 rounded-xl"
+                  className={`border rounded-xl ${isOpen ? "border-blue-400" : "border-gray-200"
+                    }`}
                 >
                   {/* Whole row clickable */}
                   <button
@@ -86,7 +87,8 @@ export default function USAFAQ() {
                     className="w-full flex items-center justify-between gap-4 p-5 text-left"
                     aria-expanded={isOpen}
                   >
-                    <span className="font-semibold text-gray-800">
+                    <span className={`font-semibold ${isOpen ? "text-blue-600" : "text-gray-800"
+                      }`}>
                       {item.q}
                     </span>
 
@@ -116,8 +118,7 @@ export default function USAFAQ() {
           <div className="mt-14 text-center">
             <ButtonWithDesign text="Get Free Profile Evaluation" />
           </div>
-        </div>Í
-
+        </div>
       </div>
     </section>
   );

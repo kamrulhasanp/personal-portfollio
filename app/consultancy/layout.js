@@ -29,7 +29,7 @@ export default async function RootLayout({ children }) {
 
       <NavBar />
 
-      <main className='mt-5'>
+      <main className=''>
         {children}
       </main>
 
