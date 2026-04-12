@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../app/globals.css';
 import ButtonWithDesign from './ButtonWithDesign'
 import YouTubePlayer from './YouTubePlayer'
 
@@ -12,7 +13,7 @@ export default function VideoSection({
     ctaHref = "/contact", // change if your button uses routing differently
 }) {
     return (
-        <section className="bg-gray-50 py-20">
+        <section className="bg-gradient-to-b from-red-50 to-white py-20">
             <div className="max-w-6xl mx-auto px-5">
                 {/* Header */}
                 <div className="text-center mb-10">

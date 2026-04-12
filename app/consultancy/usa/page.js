@@ -5,6 +5,7 @@ import USAServices from './USAServices'
 import USAProcess from './USAProcess'
 import USATestimonials from './USATestimonials'
 import USAFAQ from './USAFAQ'
+import VideoSection from '@/components/common/VideoSection'
 
 export const metadata = {
     title: "USA Study Consultancy | University Admission & F-1 Visa Support",
@@ -17,6 +18,8 @@ export default function page() {
             <USAHero />
             <USAServices />
             <USAProcess />
+            <VideoSection 
+            featuredVideoId = '9UGNsbcD6aA?si=zwJO-XRYUOKelhFn'/>
             {/* <USATestimonials /> */}
             <USAFAQ />
         </div>

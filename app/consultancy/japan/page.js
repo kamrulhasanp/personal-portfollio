@@ -19,7 +19,8 @@ export default function page() {
             <JapanServices />
             <JapanProcess />
 
-            <VideoSection />
+            <VideoSection 
+            featuredVideoId = 'h9ZAkWtlpSU?si=GiedxVMe2j2UEBs2'/>
             
             <Testimonials />
             <FAQ />
