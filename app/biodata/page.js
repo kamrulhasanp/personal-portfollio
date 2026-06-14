@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import Contact from '@/components/Contact';
 
 /**
@@ -113,79 +114,77 @@ const profession = [
 ];
 
 const siblings = [
-  {
-    name: "Hazera Begum",
-    status: "Married & Home Maker",
-    details: [
-      "Education Level: B.Sc.",
-      "Husband's Name: Md. Noruzzaman",
-    ],
-    sub: ["Profession: Civil Engineer at Narayanganj (Own business)."],
-  },
-  {
-    name: "Md. Salauddin Amran",
-    status: "Married & expatriate in Kuwait with family",
-    details: [
-      "Education Level: H.S.C.",
-      "Wife's Name: Mukta Akter (Home Maker)",
-    ],
-    sub: ["Education Level: B.A. (Honours)"],
-  },
-  {
-    name: "Md. Abdul Hannan",
-    status: "Married & expatriate in Saudi Arabia",
-    details: [
-      "Education Level: H.S.C.",
-      "Wife's Name: Sujina Akter (Home Maker)",
-    ],
-    sub: ["Education Level: H.S.C."],
-  },
-  {
-    name: "Taslima Begum",
-    status: "Married & Home Maker",
-    details: [
-      "Education Level: B.A.",
-      "Husband's Name: Md. Kazi Kibria",
-    ],
-    sub: ["Profession: Sergeant, Bangladesh Army"],
-  },
-  {
-    name: "Dr. Md. Abdul Mannan",
-    status: "Married & Employed",
-    details: [
-      "Education Level: Bachelor of Homoeopathic Medicine and Surgery (BHMS) – Dhaka University",
-      "Profession:",
-    ],
-    list: [
-      "Lecturer at Tanzim Homeopathic College & Hospital, Narayanganj.",
-      "Private Chamber at Jatrapur Bazar, Muradnagar, Cumilla.",
-      "Private Chamber at Chittagong Road, Narayanganj.",
-    ],
-    sub: [
-      "Wife's Name: Dr. Farzana Akter (Employed)",
-      "Education Level: Bachelor of Dental Surgery (BDS)",
-      "Provides dental services at a private hospital in Dhaka.",
-    ],
-    contact: "01925154790",
-  },
-  {
-    name: "Tahmina Akter",
-    status: "Married & Home Maker",
-    details: [
-      "Education Level: M.A. (Bengali)",
-      "Husband's Name: Jonayed Bugdadi",
-    ],
-    sub: ["Profession: Business"],
-  },
-  {
-    name: "Md. Kamrul Hasan",
-    status: "Bridegroom",
-    details: [],
-    sub: [],
-  },
-];
+    {
+      name: "Hazera Begum",
+      status: "Married & Home Maker",
+      details: [
+        { text: "Education Level: B.Sc." },
+        { text: "Husband's Name: Md. Noruzzaman", sub: ["Profession: Civil Engineer at Narayanganj (Own business)."] },
+      ],
+    },
+    {
+      name: "Md. Salauddin Amran",
+      status: "Married & expatriate in Kuwait with family",
+      details: [
+        { text: "Education Level: H.S.C." },
+        { text: "Wife's Name: Mukta Akter (Home Maker)", sub: ["Education Level: B.A. (Honours)"] },
+      ],
+    },
+    {
+      name: "Md. Abdul Hannan",
+      status: "Married & expatriate in Saudi Arabia",
+      details: [
+        { text: "Education Level: H.S.C." },
+        { text: "Wife's Name: Sujina Akter (Home Maker)", sub: ["Education Level: H.S.C."] },
+      ],
+    },
+    {
+      name: "Taslima Begum",
+      status: "Married & Home Maker",
+      details: [
+        { text: "Education Level: B.A." },
+        { text: "Husband's Name: Md. Kazi Kibria", sub: ["Profession: Sergeant at Bangladesh Army"] },
+      ],
+    },
+    {
+      name: "Dr. Md. Abdul Mannan",
+      status: "Married & Employed",
+      details: [
+        { text: "Education Level: Bachelor of Homoeopathic Medicine and Surgery (BHMS) – Dhaka University" },
+        {
+          text: "Profession:",
+          numberedList: [
+            "Lecturer at Tanzim Homeopathic College & Hospital, Narayanganj.",
+            "Private Chamber at Jatrapur Bazar, Muradnagar, Cumilla.",
+            "Private Chamber at Chittagong Road, Narayanganj.",
+          ],
+        },
+        {
+          text: "Wife's Name: Dr. Farzana Akter (Employed)",
+          sub: [
+            "Education Level: Bachelor of Dental Surgery (BDS)",
+            "Provides dental services at a private hospital in Dhaka.",
+          ],
+        },
+        { text: "Contact Number: 01925154790" },
+      ],
+    },
+    {
+      name: "Tahmina Akter",
+      status: "Married & Home Maker",
+      details: [
+        { text: "Education Level: M.A. (Bengali)" },
+        { text: "Husband's Name: Jonayed Bugdadi", sub: ["Profession: Business"] },
+      ],
+    },
+    {
+      name: "Md. Kamrul Hasan",
+      status: "Bridegroom",
+      details: [],
+    },
+  ];
 
-const photos = ["/images/for_biodata/bio_1.jpg"];
+const photos = ["/images/for_biodata/kamrul_1.jpg"];
 
 /**
  * ---------------------------------------------------------------------------
@@ -218,8 +217,87 @@ function PersonalRow({ label, value }) {
  */
 
 export default function Biodata() {
+    const [lightbox, setLightbox] = useState(null); // null | { src, index }
+
+      // Close lightbox on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") setLightbox(null); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
+ 
+  // Prevent body scroll while lightbox is open
+  useEffect(() => {
+    document.body.style.overflow = lightbox ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [lightbox]);
 
   return (
+    <>
+         {/* ── Lightbox ─────────────────────────────────────────────────── */}
+         {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <div
+            className="relative max-w-lg w-full bg-white rounded shadow-2xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Top bar */}
+            <div className="flex items-center justify-between px-4 py-2 bg-emerald-900 text-white text-sm">
+              <span>Photo {lightbox.index + 1} of {photos.length}</span>
+              <div className="flex gap-3">
+                {/* Download image */}
+                <a
+                  href={lightbox.src}
+                  download
+                  className="flex items-center gap-1 hover:text-amber-300 transition-colors"
+                  title="Download image"
+                >
+                  {/* Download icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+                  </svg>
+                  Download
+                </a>
+                {/* Close */}
+                <button
+                  onClick={() => setLightbox(null)}
+                  className="hover:text-amber-300 transition-colors"
+                  title="Close (Esc)"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+ 
+            {/* Image */}
+            <img
+              src={lightbox.src}
+              alt="Kamrul Hasan"
+              className="w-full object-contain max-h-[80vh]"
+            />
+ 
+            {/* Prev / Next if multiple photos */}
+            {photos.length > 1 && (
+              <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2 pointer-events-none">
+                <button
+                  className="pointer-events-auto bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                  onClick={() => setLightbox({ src: photos[(lightbox.index - 1 + photos.length) % photos.length], index: (lightbox.index - 1 + photos.length) % photos.length })}
+                >‹</button>
+                <button
+                  className="pointer-events-auto bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                  onClick={() => setLightbox({ src: photos[(lightbox.index + 1) % photos.length], index: (lightbox.index + 1) % photos.length })}
+                >›</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+   
     <div className="min-h-screen bg-stone-100 py-6 px-3 sm:py-10 sm:px-6 print:bg-white print:py-0">
       <div className="mx-auto max-w-5xl bg-[#fbf8f1] shadow-sm border border-stone-200 rounded-sm print:border-0 print:shadow-none">
         {/* Header band */}
@@ -232,32 +310,41 @@ export default function Biodata() {
               Kamrul Hasan
             </h1>
           </div>
-
-          <button
-            type="button"
-            onClick= '/'
-            className="shrink-0 rounded-sm bg-emerald-900 hover:bg-emerald-800 transition-colors text-white text-sm font-medium px-4 py-2 print:hidden"
-          >
-            Download 
-          </button>
+          <a
+              href="/images/for_biodata/Bio_Kamrul_Hasan.pdf"
+              download="Bio_of_Kamrul_Hasan.pdf"
+              className="shrink-0 rounded-sm bg-emerald-900 hover:bg-emerald-800 transition-colors text-white text-sm font-medium px-4 py-2 print:hidden flex items-center gap-2"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" />
+              </svg>
+              Download
+          </a>
         </header>
 
         <div className="px-6 sm:px-10 py-8 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8">
-          {/* Photos column */}
+          {/* Photos column — click any photo to open lightbox */}
           <div className="flex flex-row md:flex-col gap-3 md:gap-4 overflow-x-auto md:overflow-visible">
             {photos.map((src, i) => (
-              <div
+              <button
                 key={i}
-                className="shrink-0 w-28 md:w-full aspect-[3/4] bg-stone-200 border border-stone-300 overflow-hidden rounded-sm"
+                type="button"
+                onClick={() => setLightbox({ src, index: i })}
+                className="shrink-0 w-28 md:w-full aspect-[3/4] bg-stone-200 border border-stone-300 overflow-hidden rounded-sm cursor-zoom-in group relative focus:outline-none focus:ring-2 focus:ring-emerald-700"
+                title="Click to enlarge"
               >
-                {/* Swap for next/image if desired:
-                    <Image src={src} alt="Kamrul Hasan" fill className="object-cover" /> */}
                 <img
                   src={src}
                   alt="Kamrul Hasan"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
                 />
-              </div>
+                {/* Zoom hint that appears on hover */}
+                <span className="absolute inset-0 flex items-end justify-center pb-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-[10px] bg-black/50 text-white px-2 py-0.5 rounded-full">
+                    Click to enlarge
+                  </span>
+                </span>
+              </button>
             ))}
           </div>
 
@@ -336,55 +423,48 @@ export default function Biodata() {
             <section>
               <SectionHeading>Siblings Details</SectionHeading>
               <p className="text-sm text-stone-500 mb-4">(We are four brothers & three sisters)</p>
-
+ 
               <ol className="space-y-5">
                 {siblings.map((sib, i) => (
                   <li
                     key={sib.name}
                     className="border border-stone-200 rounded-sm bg-white p-4"
                   >
+                    {/* Name + status */}
                     <p className="font-semibold text-emerald-900">
                       {i + 1}. {sib.name}{" "}
                       <span className="font-normal text-stone-500 text-sm">
                         ({sib.status})
                       </span>
                     </p>
-
+ 
+                    {/* Details: each item is a bullet, with optional sub-items and/or numbered list */}
                     {sib.details?.length > 0 && (
-                      <ul className="mt-2 ml-4 list-disc text-sm text-stone-700 space-y-0.5">
-                        {sib.details.map((d) => (
-                          <li key={d}>{d}</li>
+                      <ul className="mt-2 ml-4 list-disc text-sm text-stone-700 space-y-1">
+                        {sib.details.map((item) => (
+                          <li key={item.text}>
+                            {item.text}
+ 
+                            {/* Numbered sub-list (e.g. Dr. Mannan's professions) */}
+                            {item.numberedList?.length > 0 && (
+                              <ol className="mt-1 ml-4 list-decimal text-stone-600 space-y-0.5">
+                                {item.numberedList.map((entry) => (
+                                  <li key={entry}>{entry}</li>
+                                ))}
+                              </ol>
+                            )}
+ 
+                            {/* Starred sub-items (e.g. spouse's education/profession) */}
+                            {item.sub?.length > 0 && (
+                              <ul className="mt-1 ml-4 list-[circle] text-stone-500 space-y-0.5">
+                                {item.sub.map((s) => (
+                                  <li key={s}>{s}</li>
+                                ))}
+                              </ul>
+                            )}
+                          </li>
                         ))}
                       </ul>
-                    )}
-
-                    {sib.list?.length > 0 && (
-                      <ol className="mt-1 ml-10 list-decimal text-sm text-stone-700 space-y-0.5">
-                        {sib.list.map((d) => (
-                          <li key={d}>{d}</li>
-                        ))}
-                      </ol>
-                    )}
-
-                    {sib.sub?.length > 0 && (
-                      <ul className="mt-2 ml-8 list-[circle] text-sm text-stone-600 space-y-0.5">
-                        {sib.sub.map((d) => (
-                          <li key={d}>{d}</li>
-                        ))}
-                      </ul>
-                    )}
-
-                    {sib.contact && ( <>
-                        <ul className="mt-2 ml-8 list-[circle] text-sm text-stone-600 space-y-0.5">
-                        {sib.sub.map((d) => (
-                          <li key={d}>{d}</li>
-                        ))}
-                      </ul>
-                      <p className="mt-2 ml-4 text-sm text-stone-700">
-                        Contact Number: {sib.contact}
-                      </p>
-                    </>
-                       
                     )}
                   </li>
                 ))}
@@ -394,5 +474,6 @@ export default function Biodata() {
         </div>
       </div>
     </div>
+     </>
   );
 }
