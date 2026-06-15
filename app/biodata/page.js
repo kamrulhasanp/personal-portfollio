@@ -184,7 +184,7 @@ const siblings = [
     },
   ];
 
-const photos = ["/images/for_biodata/kamrul_1.jpg"];
+const photos = ["/images/for_biodata/Kamrul_1.jpg", "/images/for_biodata/Kamrul_2.jpg"];
 
 /**
  * ---------------------------------------------------------------------------
@@ -472,6 +472,24 @@ export default function Biodata() {
             </section>
           </div>
         </div>
+         {/* ── Footer strip ─────────────────────────────────────────────── */}
+         <footer className="border-t-2 border-amber-600/40 px-6 sm:px-10 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 print:hidden">
+          <div>
+            <p className="font-medium text-sm text-stone-800">Interested in connecting?</p>
+            
+          </div>
+          <a
+            href="https://www.kamrulhasanp.com/contact"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 rounded-sm bg-emerald-900 hover:bg-emerald-800 transition-colors text-white text-sm font-medium px-5 py-2.5"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Contact me
+          </a>
+        </footer>
       </div>
     </div>
      </>
