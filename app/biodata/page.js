@@ -184,7 +184,7 @@ const siblings = [
     },
   ];
 
-const photos = ["/images/for_biodata/Kamrul_H.jpg", "/images/for_biodata/Kamrul_2.jpg"];
+const photos = ["/images/for_biodata/Kamrul_H.jpg", "/images/for_biodata/Kamrul_2.jpg", "/images/for_biodata/Kamrul_F.jpg", "/images/for_biodata/Kamrul_T.jpg"];
 
 /**
  * ---------------------------------------------------------------------------
