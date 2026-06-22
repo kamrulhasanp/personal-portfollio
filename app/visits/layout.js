@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Kamrul Hasan | biodata",
-  description: "USA",
+  title: "Kamrul Hasan | Portfolio",
+  description: "Full-Stack Developer & Cybersecurity Specialist",
 
 };
 
