@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const SHEET_ID     = process.env.GOOGLE_SHEET_ID;
 const CLIENT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const PRIVATE_KEY  = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
-const SHEET_NAME   = "Vitors";
+const SHEET_NAME   = "Vsitors";
 
 // ── Google Auth (same JWT approach) ─────────────────────────────────────────
 async function getAccessToken() {

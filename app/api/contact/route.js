@@ -26,7 +26,7 @@ export async function POST(req) {
         // 4. Append data to Google Sheet
         await sheets.spreadsheets.values.append({
             spreadsheetId: process.env.GOOGLE_SHEET_ID,
-            range: 'Contact_Message!A:E', 
+            range: 'Sheet1!A:E', 
             valueInputOption: 'USER_ENTERED',
             requestBody: {
                 values: [[new Date().toLocaleString(), name, email, phone, service, message]],

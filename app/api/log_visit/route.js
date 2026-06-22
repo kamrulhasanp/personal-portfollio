@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 const SHEET_ID     = process.env.GOOGLE_SHEET_ID;
 const CLIENT_EMAIL = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
 const PRIVATE_KEY  = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n");
-const SHEET_NAME   = "Vitors"; // your tab name (note spelling)
+const SHEET_NAME   = "Vsitors"; // your tab name (note spelling)
 const DATA_START   = 4;        // headers are row 3, data starts row 4
 
 // ── Google Auth: create a JWT and exchange for access token ─────────────────
