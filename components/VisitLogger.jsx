@@ -15,6 +15,14 @@ export default function VisitLogger({
     if (onlyPages && !onlyPages.includes(pathname)) return;
     if (ignorePages.includes(pathname)) return;
 
+    // For get visited key
+    const visitedKey = "hasVisitedWebsite";
+    const isFirstVisit = localStorage.getItem(visitedKey) ? "No" : "Yes";
+
+    if (isFirstVisit === "Yes") {
+      localStorage.setItem(visitedKey, "true");
+    }
+
     fetch("/api/log_visit", {
       method: "POST",
       headers: {
@@ -24,11 +32,12 @@ export default function VisitLogger({
         userAgent: navigator.userAgent,
         referrer: document.referrer || "direct",
         page: pathname,
+        firstVisit: isFirstVisit,
       }),
     }).catch((err) => {
       
     });
-  }, [pathname]);
+  }, [ignorePages, onlyPages, pathname]);
 
   return null;
 }

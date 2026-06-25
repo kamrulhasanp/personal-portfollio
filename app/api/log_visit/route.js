@@ -148,7 +148,8 @@ export async function POST(request) {
       country,
       isp,
       body.referrer || "direct",
-      body.page || "/biodata",
+      body.page || "-",
+      body.firstVisit || "No",
     ];
 
     const token = await getAccessToken();
@@ -156,7 +157,7 @@ export async function POST(request) {
     const range = encodeURIComponent(`${SHEET_NAME}!A${DATA_START}`);
 
     const sheetRes = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}:append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`,
       {
         method: "POST",
         headers: {
