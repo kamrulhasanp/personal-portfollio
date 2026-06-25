@@ -19,14 +19,14 @@ const personal = [
     value: (
       <>
         Late Dr. Md. Alauddin Munshi (Muhammad Doctor)
-        <br />
-        Education Level: M.A. (Kamil)
-        <br />
-        Former Chamber: Jatrapur Bazar, Muradnagar, Cumilla.
+        <ul>
+          <li>Education Level: M.A. (Kamil)</li>
+          <li>Former Chamber: Jatrapur Bazar, Muradnagar, Cumilla.</li>
+        </ul>
       </>
     ),
   },
-  { label: "Mother's Name", value: "Nilufa Akter (Home Maker)" },
+  { label: "Mother's Name", value: "Nilufa Akter (Homemaker)" },
   { label: "Grandfather", value: "Late Safor Ali Munshi" },
   {
     label: "Date of Birth",
@@ -39,17 +39,14 @@ const personal = [
   { label: "Height", value: "5 feet 6 inches" },
   { label: "Weight", value: "68 kg" },
   { label: "Blood Group", value: "B+" },
-  { label: "Address in Bangladesh", value: "(East) Jatrapur, Muradnagar, Cumilla." },
-  { label: "Address in USA", value: "Los Angeles, California" },
+  { label: "Permanent Address", value: "(East) Jatrapur, Muradnagar, Cumilla." },
+  { label: "Present Address", value: "Los Angeles, California" },
+  { label: "Occupation", value: "Full-time Graduate Student" },
   {
-    label: "Contact Email",
+    label: "Email",
     value: (
       <>
         kamrulhasanan@gmail.com
-        <br />
-        <span className="text-xs text-stone-500">
-          (If you want to contact, please mention your full information.)
-        </span>
       </>
     ),
   },
@@ -91,9 +88,15 @@ const education = [
   {
     level: "M.Sc.",
     institute: "California State University",
-    subject: "M.Sc. in Cybersecurity",
+    subject: "M.S. in Cybersecurity",
     board: "-",
-    year: "2027 (Intended)",
+    year: (
+      <>
+        2027
+        <br className="block sm:hidden" />
+        (Expected)
+      </>
+    ),
     country: "USA",
   },
 ];
@@ -116,10 +119,10 @@ const profession = [
 const siblings = [
     {
       name: "Hazera Begum",
-      status: "Married & Home Maker",
+      status: "Married & Homemaker",
       details: [
         { text: "Education Level: B.Sc." },
-        { text: "Husband's Name: Md. Noruzzaman", sub: ["Profession: Civil Engineer at Narayanganj (Own business)."] },
+        { text: "Husband's Name: Md. Noruzzaman", sub: ["Profession: Civil Engineer at Narayanganj (Business Owner)."] },
       ],
     },
     {
@@ -127,7 +130,7 @@ const siblings = [
       status: "Married & expatriate in Kuwait with family",
       details: [
         { text: "Education Level: H.S.C." },
-        { text: "Wife's Name: Mukta Akter (Home Maker)", sub: ["Education Level: B.A. (Honours)"] },
+        { text: "Wife's Name: Mukta Akter (Homemaker)", sub: ["Education Level: B.A. (Honours)"] },
       ],
     },
     {
@@ -135,12 +138,12 @@ const siblings = [
       status: "Married & expatriate in Saudi Arabia",
       details: [
         { text: "Education Level: H.S.C." },
-        { text: "Wife's Name: Sujina Akter (Home Maker)", sub: ["Education Level: H.S.C."] },
+        { text: "Wife's Name: Sujina Akter (Homemaker)", sub: ["Education Level: H.S.C."] },
       ],
     },
     {
       name: "Taslima Begum",
-      status: "Married & Home Maker",
+      status: "Married & Homemaker",
       details: [
         { text: "Education Level: B.A." },
         { text: "Husband's Name: Md. Kazi Kibria", sub: ["Profession: Sergeant at Bangladesh Army"] },
@@ -171,15 +174,15 @@ const siblings = [
     },
     {
       name: "Tahmina Akter",
-      status: "Married & Home Maker",
+      status: "Married & Homemaker",
       details: [
         { text: "Education Level: M.A. (Bengali)" },
-        { text: "Husband's Name: Jonayed Bugdadi", sub: ["Profession: Business"] },
+        { text: "Husband's Name: Jonayed Bugdadi", sub: ["Profession: Business Owner"] },
       ],
     },
     {
       name: "Md. Kamrul Hasan",
-      status: "Bridegroom",
+      status: "Groom",
       details: [],
     },
   ];
@@ -311,7 +314,7 @@ export default function Biodata() {
             </h1>
           </div>
           <a
-              href="/images/for_biodata/Bio_Kamrul_Hasan.pdf"
+              href="/images/for_biodata/Bio_of_Kamrul_Hasan.pdf"
               download="Bio_of_Kamrul_Hasan.pdf"
               className="shrink-0 rounded-sm bg-emerald-900 hover:bg-emerald-800 transition-colors text-white text-sm font-medium px-4 py-2 print:hidden flex items-center gap-2"
             >
