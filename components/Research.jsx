@@ -23,13 +23,14 @@ export const Research = () => {
             link: "https://ejaset.com/index.php/journal/article/view/402/289",
             description: "Developed an integrated ML platform for real-time cloud risk assessment using XGBoost (98.6% accuracy) and Random Forest for proactive threat detection."
         },
+ 
         {
-            title: "Performance Trade-Offs of Virtual Private Networks in Low-Power Internet of Things Systems",
-            journal: "Springer Nature",
-            date: "Expected 2026",
-            status: "Under Review",
-            link: "#",
-            description: "A survey of VPN performance in low-power IoT systems, comparing IPsec, OpenVPN, and WireGuard across latency, bandwidth overhead, and energy efficiency, with emphasis on deployment models and practical optimization strategies."
+            title: "A Multi-Platform Framework for Islamophobia Detection on Indian Twitter and Instagram Using ML and Transformer-Based Deep Learning Models",
+            journal: "IEEE Xplore (Conference Paper)",
+            date: "April 2026",
+            status: "Published",
+            link: "https://ieeexplore.ieee.org/abstract/document/11545601",
+            description: "Built a cross-platform hate speech detection framework using 7,000 Indian tweets and 1,000 Instagram posts. Benchmarked SVM, Logistic Regression, Random Forest, Naïve Bayes, fine-tuned BERT, and T5 — with SVM achieving the best accuracy of 95.49% (F1: 0.99) for Islamophobic content classification."
         }
     ];
 
