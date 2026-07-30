@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
           <div className="relative w-full max-w-md aspect-[3/4] shadow-2xl overflow-hidden border-4 border-white/20">
             <Image
-              src="/Kamrul_Hero.jpg" // Ensure your image is in public/ folder
+              src="/Kamrul_Hero_3.PNG" // Ensure your image is in public/ folder
               alt="Kamrul Hasan"
               fill
               className="object-cover"

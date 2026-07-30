@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <VisitLogger ignorePages={["/visits", ]} />
+        <VisitLogger ignorePages={["/visits","127.0.0.1" ]} ignoreHosts={["localhost", "127.0.0.1"]} />
         {children}
 
         {/* This allows toasts to pop up anywhere in your app */}

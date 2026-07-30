@@ -41,7 +41,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/consultancy/japan" className="hover:text-blue-400 transition-colors">Japan Study Consultant</Link></li>
               <li><Link href="/consultancy/usa" className="hover:text-blue-400 transition-colors">USA Study Consultant</Link></li>
-              <li><Link href="/cybersicurity" className="hover:text-blue-400 transition-colors">Cybersecurity Mentorship</Link></li>
+              <li><Link href="/cybersecurity" className="hover:text-blue-400 transition-colors">Cybersecurity Mentorship</Link></li>
             </ul>
           </div>
 

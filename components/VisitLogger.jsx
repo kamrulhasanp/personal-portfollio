@@ -6,13 +6,21 @@ import { usePathname } from "next/navigation";
 export default function VisitLogger({
   onlyPages = null,
   ignorePages = [],
+  ignoreHosts = [],
 }) {
   const pathname = usePathname();
 
   useEffect(() => {
     if (!pathname) return;
+    
+    const hostname = window.location.hostname;
 
     if (onlyPages && !onlyPages.includes(pathname)) return;
+
+     // Ignore selected hosts
+     if (ignoreHosts.includes(hostname)) return;
+
+     // Ignore selected page
     if (ignorePages.includes(pathname)) return;
 
     // For get visited key
@@ -37,7 +45,7 @@ export default function VisitLogger({
     }).catch((err) => {
       
     });
-  }, [ignorePages, onlyPages, pathname]);
+  }, [ignorePages, ignoreHosts, onlyPages, pathname]);
 
   return null;
 }
