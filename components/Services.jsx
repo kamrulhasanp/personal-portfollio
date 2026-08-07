@@ -49,7 +49,7 @@ export default function Services() {
             banner: "/images/cybersecurity_training.png",
             icon: "🛡️",
             videoCount: "25+ Tutorials",
-            link: "/cybersicurity"
+            link: "/cybersecurity"
         }
     ];
     return (
