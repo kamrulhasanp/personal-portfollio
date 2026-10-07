@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 //import { HiOutlineExternalLink, HiOutlineDocumentSearch } from "react-icons/hi";
@@ -14,6 +14,9 @@ import 'swiper/css/pagination';
 
 export const Research = () => {
 
+    const swiperRef = useRef(null)
+    const [activeDot, setActiveDot] = useState(0);
+
     const papers = [
         {
             title: "Machine Learning Approaches to Real-Time Risk Assessment in Cloud Computing: An Intelligent Framework for Proactive Threat Detection",
@@ -23,7 +26,7 @@ export const Research = () => {
             link: "https://ejaset.com/index.php/journal/article/view/402/289",
             description: "Developed an integrated ML platform for real-time cloud risk assessment using XGBoost (98.6% accuracy) and Random Forest for proactive threat detection."
         },
- 
+
         {
             title: "A Multi-Platform Framework for Islamophobia Detection on Indian Twitter and Instagram Using ML and Transformer-Based Deep Learning Models",
             journal: "IEEE Xplore (Conference Paper)",
@@ -31,6 +34,15 @@ export const Research = () => {
             status: "Published",
             link: "https://ieeexplore.ieee.org/abstract/document/11545601",
             description: "Built a cross-platform hate speech detection framework using 7,000 Indian tweets and 1,000 Instagram posts. Benchmarked SVM, Logistic Regression, Random Forest, Naïve Bayes, fine-tuned BERT, and T5 — with SVM achieving the best accuracy of 95.49% (F1: 0.99) for Islamophobic content classification."
+        },
+
+        {
+            title: "BehaviorGuard: A Host-Based Behavioral Ransomware Detection and Automated Containment System Using Wazuh SIEM and Microsoft Sysmon",
+            journal: "JAITD",
+            date: "September 2026",
+            status: "Published",
+            link: "https://doi.org/10.59324/jaitd.2026.2(5).02",
+            description: "Developed a behavioral ransomware detection system using Wazuh SIEM and Microsoft Sysmon, achieving an F1-score of 0.974 and automated containment under 3 seconds in controlled simulations."
         }
     ];
 
@@ -51,11 +63,16 @@ export const Research = () => {
                 </div>
 
                 <Swiper
-                    modules={[Navigation, Pagination, Autoplay]}
+                    modules={[Navigation, Autoplay]}
+                    onSwiper={(swiper) => {
+                        swiperRef.current = swiper;
+                    }}
+                    onSlideChange={(swiper) => {
+                        setActiveDot(swiper.activeIndex);
+                    }}
                     spaceBetween={30}
                     slidesPerView={1}
                     navigation={isSlidingEnabled}
-                    pagination={{ clickable: true }}
                     autoplay={isSlidingEnabled ? { delay: 6000 } : false}
                     breakpoints={{
                         768: { slidesPerView: 2 },
@@ -108,6 +125,41 @@ export const Research = () => {
                             </div>
                         </SwiperSlide>
                     ))}
+
+                    {isSlidingEnabled && (
+                        <div
+                            className="flex justify-center items-center gap-2 pb-6"
+                            role="group"
+                            aria-label="Research paper navigation"
+                        >
+                            {papers.map((paper, index) => (
+                                <button
+                                    key={paper.link}
+                                    type="button"
+                                    aria-label={`Show paper ${index + 1}`}
+                                    aria-pressed={activeDot === index}
+                                    onClick={() => {
+                                        const swiper = swiperRef.current;
+                                        if (!swiper) return;
+
+                                        swiper.slideTo(index);
+                                        setActiveDot(index);
+                                    }}
+                                    style={{
+                                        width: activeDot === index ? 24 : 10,
+                                        height: 10,
+                                        borderRadius: 9999,
+                                        backgroundColor:
+                                            activeDot === index ? '#2563eb' : '#cbd5e1',
+                                        border: 'none',
+                                        padding: 0,
+                                        cursor: 'pointer',
+                                        transition: 'all 0.3s'
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    )}
                 </Swiper>
             </div>
 
